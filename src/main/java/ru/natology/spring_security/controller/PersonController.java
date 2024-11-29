@@ -1,14 +1,15 @@
 package ru.natology.spring_security.controller;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
 import ru.natology.spring_security.entity.Person;
 import ru.natology.spring_security.service.PersonService;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class PersonController {
@@ -30,7 +31,7 @@ public class PersonController {
 
     @GetMapping("/persons/by-fullname")
     public ResponseEntity<Person> getNameSurname(@RequestParam("name") String name,
-                                                 @RequestParam("surname") String surname) {
+            @RequestParam("surname") String surname) {
         Optional<Person> person = service.getNameSurname(name, surname);
         return person.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
