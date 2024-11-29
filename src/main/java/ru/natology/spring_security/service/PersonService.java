@@ -1,10 +1,10 @@
 package ru.natology.spring_security.service;
 
-import ru.natology.spring_security.entity.Person;
-import ru.natology.spring_security.repository.PersonRepository;
-
 import java.util.List;
 import java.util.Optional;
+
+import ru.natology.spring_security.entity.Person;
+import ru.natology.spring_security.repository.PersonRepository;
 
 @org.springframework.stereotype.Service
 public class PersonService {
